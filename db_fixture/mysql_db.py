@@ -38,7 +38,6 @@ class DB:
 		real_sql = 'delete from '+table_name + ';'
 		with self.conn.cursor() as cursor:
 			cursor.execute('set FOREIGN_KEY_CHECKS=0;')
-			self.conn.commit()
 			cursor.execute(real_sql)
 		self.conn.commit()
 		

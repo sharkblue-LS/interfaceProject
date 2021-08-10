@@ -49,7 +49,15 @@ class AddEventTest(unittest.TestCase):
 		payload = {'eid':11,'name':'一加4手机发布会','limit':2000,'address':'深圳宝体','start_time':'2021-08-09 16:00:00'}
 		r = requests.post(self.base_url, data=payload)
 		self.result = r.json()
-		self.assertEqual(self.result['status'], 2001)
+		self.assertEqual(self.result['status'], 200)
+		self.assertEqual(self.result['message'], 'add event success')
+		
+	def test_add_event_error(self):
+		'''添加失败'''
+		payload = {'eid': 12, 'name': '华为P50手机发布会', 'limit': 2000, 'address': '深圳坂田华为大厦', 'start_time': '2021-08-10 16:00:00'}
+		r = requests.post('http://127.0.0.1:8000/add_event/', data=payload)
+		self.result = r.json()
+		self.assertEqual(self.result['status'], 200)
 		self.assertEqual(self.result['message'], 'add event success')
 		
 if __name__ == '__main__':
