@@ -1,6 +1,6 @@
 > 基于`Python`的`unittest`单元测试报告美化
 
-作为 [HwTTK（Test Tool Kit ）](https://github.com/hongweifuture/HwTTK)中的一员，`HwTestReport`具有以下特性：
+`HwTestReport`具有以下特性：
 - 支持`Python2`和`Python3`，自动兼容，无需设置
 - 支持`中文`和`英文`手动切换
 - 支持`Selenium`和`Appium`截图报告嵌入`Html`报告中，可根据需求设置开启或关闭截图展示功能
@@ -11,6 +11,7 @@
 - 其他细节修改
 
 源自 [tungwaiyip.info](http://tungwaiyip.info/software/HTMLTestRunner.html) 的`0.82`版本 `HTMLTestRunner`
+源自 [HwTTK（Test Tool Kit ）](https://github.com/hongweifuture/HwTTK) 
 
 ## 当前的环境
 环境| 版本
@@ -25,10 +26,10 @@ Firefox   |72.0.1 (64 位)
 ```python
 import unittest
 # 中文 Chinese
-from HwTestReport import HTMLTestReport
+from TestReport_local import HTMLTestReport
 
 # 英文 English
-from HwTestReport import HTMLTestReportEN
+from TestReport_local import HTMLTestReportEN
 
 class Case_assert_1(unittest.TestCase):
     def setUp(self):
@@ -132,8 +133,8 @@ if __name__ == "__main__":
 
 ```python
 import unittest
-from HwTestReport import HTMLTestReport
-from HwTestReport import HTMLTestReportEN
+from TestReport_local import HTMLTestReport
+from TestReport_local import HTMLTestReportEN
 from selenium import webdriver
 
 class Case_baidu(unittest.TestCase):
@@ -235,7 +236,7 @@ if __name__ == "__main__":
     suites.addTests([suite1, suite2, suite3])
 
     # HTMLTestReport or HTMLTestReportEN
-    with open('./HwTestReportIMG.html', 'wb') as report:
+    with open('./TestReportIMG.html', 'wb') as report:
         runner = HTMLTestReportEN(stream=report,
                                 verbosity=2,
                                 images=True,
@@ -243,20 +244,13 @@ if __name__ == "__main__":
                                 description='带截图，带饼图，带详情',
                                 tester='Johnny')
 
-```
-## 离线报告
-使用方法和上述一致，只是选择带`local`的版本即可，美化所需的样式在`/static/`目录下，故`/static/`目录要和`生成的报告在相同目录`
-```
-import unittest
-from HwTestReport_local import HTMLTestReport
-from HwTestReport_local import HTMLTestReportEN
+
 ```
 
 ## 关键字说明
 关键字| 说明
--|- 
-HTMLTestReport.py| 源文件
-HTMLTestReport_local.py| 离线源文件
+-|-
+HTMLTestReport_local.py| 源文件
 HTMLTestReport| 生成中文报告的类
 HTMLTestReportEN| 生成英文报告的类
 stream| 生成的报告文件
