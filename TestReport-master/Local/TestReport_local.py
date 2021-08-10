@@ -1,24 +1,11 @@
 #!/usr/bin/env python3
 # coding=utf-8
-__author__ = "zhaohongwei"
-__email__ = "hongweifuture@163.com"
-__contact__ = "https://blog.csdn.net/z_johnny"
-__version__ = "0.1"
-__date__ = "2019/9/2 16:37"
-__maintainer__ = "zhaohongwei,"
-__description__ = ""
-
-"""
-History:
-2019/9/2 16:37 : Created by zhaohongwei 
-"""
-
 import datetime
 import sys
 import unittest
 from xml.sax import saxutils
 
-# 支持 python2 and python3  --zhaohongwei
+# 支持 python2 and python3
 python3 = (sys.version_info[0] > 2)
 if python3:
     import io as StringIO
@@ -56,10 +43,10 @@ class Template_CN(object):
     2: u'错误',
     }
 
-    # 增加 tester  --zhaohongwei
+    # 增加 tester
     DEFAULT_TITLE = '测试报告'
     DEFAULT_DESCRIPTION = ''
-    DEFAULT_TESTER = 'Johnny Zhao'
+    DEFAULT_TESTER = 'sharkblue'
 
     # ------------------------------------------------------------------------
     # HTML Template
@@ -82,7 +69,7 @@ class Template_CN(object):
     <script language="javascript" type="text/javascript"><!--
     output_list = Array();
     
-    /*level 增加测试结果的筛选条件  --zhaohongwei
+    /*level 增加测试结果的筛选条件
     0:Summary //all hiddenRow
     1:Pass    //pt none, ft hiddenRow, et hiddenRow
     2:Failed  //pt hiddenRow, ft none, et hiddenRow
@@ -122,7 +109,7 @@ class Template_CN(object):
             }
         }
     }
-    /* 优化详情与收缩不生效  --zhaohongwei */
+    /* 优化详情与收缩不生效 */
     function showClassDetail(cid, count) {
         var id_list = Array(count);
         var toHide = 1;
@@ -134,7 +121,7 @@ class Template_CN(object):
                 tid = 'p' + tid0;
                 tr = document.getElementById(tid);
             }
-            /* 增加error  --zhaohongwei*/
+            /* 增加error  */
             if (!tr) {
                 tid = 'e' + tid0;
                 tr = document.getElementById(tid);
@@ -177,7 +164,7 @@ class Template_CN(object):
         s = s.replace(/>/g,'&gt;');
         return s;
     }
-    /* 增加selenium结合unittest测试的结果截图 --zhaohongwei  引用自GoverSky*/
+    /* 增加selenium结合unittest测试的结果截图 引用自GoverSky*/
     function show_img(obj) {
         var obj1 = obj.nextElementSibling
         obj1.style.display='block'
@@ -243,7 +230,7 @@ class Template_CN(object):
 </html>
 """
     # variables: (title, generator, stylesheet, heading, report, ending, chart_script)
-    # 增加饼图  --zhaohongwei  引用自huilansame
+    # 增加饼图  引用自huilansame
     ECHARTS_SCRIPT = """
         <script type="text/javascript">
             // 基于准备好的dom，初始化echarts实例
@@ -440,7 +427,7 @@ a.popup_link:hover {
     # ------------------------------------------------------------------------
     # Heading
     #
-    # 修改饼图位置 --zhaohongwei
+    # 修改饼图位置
     HEADING_TMPL = """
     <div class='page-header'>
         <h1>%(title)s
@@ -567,7 +554,7 @@ a.popup_link:hover {
 </tr>
 """ # variables: (style, desc, count, Pass, fail, error, cid)
 
-    # 修改详情展开与收缩 --zhaohongwei
+    # 修改详情展开与收缩
     REPORT_TEST_WITH_OUTPUT_TMPL = r"""
 <tr id='%(tid)s' class='%(Class)s'>
     <td class='%(style)s'><div class='testcase'>%(desc)s</div></td>
@@ -655,7 +642,7 @@ a.popup_link:hover {
 <div id='ending'>
     <p align="center">
     Copyright &copy 2016
-    <a href="http://blog.csdn.net/z_johnny" target="_blank"> HONGWEI </a>
+    <a href="http://blog.csdn.net/z_johnny" target="_blank"> shark </a>
     Inc. All rights reserved.
     </p>
 </div>
@@ -673,7 +660,7 @@ class Template_EN(object):
         2: u'error',
     }
 
-    # add tester  --zhaohongwei
+    # add tester
     DEFAULT_TITLE = 'Test Report'
     DEFAULT_DESCRIPTION = ''
     DEFAULT_TESTER = 'Johnny Zhao'
@@ -699,7 +686,7 @@ class Template_EN(object):
     <script language="javascript" type="text/javascript"><!--
     output_list = Array();
     
-    /*level add test choice  --zhaohongwei
+    /*level add test choice
     0:Summary //all hiddenRow
     1:Pass    //pt none, ft hiddenRow, et hiddenRow
     2:Failed  //pt hiddenRow, ft none, et hiddenRow
@@ -739,7 +726,7 @@ class Template_EN(object):
             }
         }
     }
-    /* Optimizing Details and Contraction Not Effective  --zhaohongwei */
+    /* Optimizing Details and Contraction Not Effective */
     function showClassDetail(cid, count) {
         var id_list = Array(count);
         var toHide = 1;
@@ -751,7 +738,7 @@ class Template_EN(object):
                 tid = 'p' + tid0;
                 tr = document.getElementById(tid);
             }
-            /* 增加error  --zhaohongwei*/
+            /* 增加error  */
             if (!tr) {
                 tid = 'e' + tid0;
                 tr = document.getElementById(tid);
@@ -794,7 +781,7 @@ class Template_EN(object):
         s = s.replace(/>/g,'&gt;');
         return s;
     }
-    /* add test screenshot --zhaohongwei  from GoverSky*/
+    /* add test screenshot   from GoverSky*/
     function show_img(obj) {
         var obj1 = obj.nextElementSibling
         obj1.style.display='block'
@@ -861,7 +848,7 @@ class Template_EN(object):
 """
 
     # variables: (title, generator, stylesheet, heading, report, ending, chart_script)
-    # add Pie chart --zhaohongwei  from huilansame
+    # add Pie chart   from huilansame
     ECHARTS_SCRIPT = """
             <script type="text/javascript">
                 var myChart = echarts.init(document.getElementById('chart'));
@@ -1056,7 +1043,7 @@ a.popup_link:hover {
     # ------------------------------------------------------------------------
     # Heading
     #
-    # change Pie chart local --zhaohongwei
+    # change Pie chart local
     HEADING_TMPL = """
     <div class='page-header'>
         <h1>%(title)s
@@ -1182,7 +1169,7 @@ a.popup_link:hover {
 </tr>
 """ # variables: (style, desc, count, Pass, fail, error, cid)
 
-    # Modification Details Expansion and Contraction  --zhaohongwei
+    # Modification Details Expansion and Contraction
     REPORT_TEST_WITH_OUTPUT_TMPL = r"""
 <tr id='%(tid)s' class='%(Class)s'>
     <td class='%(style)s'><div class='testcase'>%(desc)s</div></td>
@@ -1269,7 +1256,7 @@ a.popup_link:hover {
 <div id='ending'>
     <p align="center">
     Copyright &copy 2016
-    <a href="http://blog.csdn.net/z_johnny" target="_blank"> HONGWEI </a>
+    <a href="http://blog.csdn.net/z_johnny" target="_blank"> shark </a>
     Inc. All rights reserved.
     </p>
 </div>
@@ -1526,7 +1513,7 @@ class HTMLTestReport(Template_CN):
 
     def generateReport(self, test, result):
         report_attrs = self.getReportAttributes(result)
-        generator = u'HTMLTestRunner %s' % __version__
+        generator = u'HTMLTestRunner'
         stylesheet = self._generate_stylesheet()
         heading = self._generate_heading(report_attrs)
         report = self._generate_report(result)
@@ -1641,7 +1628,7 @@ class HTMLTestReport(Template_CN):
     def _generate_report_test(self, rows, cid, tid, n, t, o, e):
         # e.g. 'pt1.1', 'ft1.1', etc
         has_output = bool(o or e)
-        # 增加error --zhaohongwei
+        # 增加error
         tid = (n == 0 and 'p' or n == 1 and 'f' or 'e') + 't%s_%s' % (cid + 1, tid + 1)
 
         name = t.id().split('.')[-1]
@@ -1780,7 +1767,7 @@ class HTMLTestReportEN(Template_EN):
 
     def generateReport(self, test, result):
         report_attrs = self.getReportAttributes(result)
-        generator = u'HTMLTestRunner %s' % __version__
+        generator = u'HTMLTestRunner'
         stylesheet = self._generate_stylesheet()
         heading = self._generate_heading(report_attrs)
         report = self._generate_report(result)
@@ -1895,7 +1882,7 @@ class HTMLTestReportEN(Template_EN):
     def _generate_report_test(self, rows, cid, tid, n, t, o, e):
         # e.g. 'pt1.1', 'ft1.1', etc
         has_output = bool(o or e)
-        # add error --zhaohongwei
+        # add error
         tid = (n == 0 and 'p' or n == 1 and 'f' or 'e') + 't%s_%s' % (cid + 1, tid + 1)
 
         name = t.id().split('.')[-1]

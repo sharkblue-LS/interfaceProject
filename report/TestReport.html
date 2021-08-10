@@ -2,11 +2,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>HwTestReport 测试</title>
-    <meta name="generator" content="HTMLTestRunner 0.1"/>
+    <title>TestReport 测试</title>
+    <meta name="generator" content="HTMLTestRunner"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     
-    <link href="./static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
 
     
 <style type="text/css" media="screen">
@@ -146,14 +146,14 @@ a.popup_link:hover {
 
 </style>
 
-    <script src="./static/js/echarts.common.min.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/3.8.5/echarts.common.min.js"></script>
 
 </head>
 <body>
     <script language="javascript" type="text/javascript"><!--
     output_list = Array();
     
-    /*level 增加测试结果的筛选条件  --zhaohongwei
+    /*level 增加测试结果的筛选条件
     0:Summary //all hiddenRow
     1:Pass    //pt none, ft hiddenRow, et hiddenRow
     2:Failed  //pt hiddenRow, ft none, et hiddenRow
@@ -193,7 +193,7 @@ a.popup_link:hover {
             }
         }
     }
-    /* 优化详情与收缩不生效  --zhaohongwei */
+    /* 优化详情与收缩不生效 */
     function showClassDetail(cid, count) {
         var id_list = Array(count);
         var toHide = 1;
@@ -205,7 +205,7 @@ a.popup_link:hover {
                 tid = 'p' + tid0;
                 tr = document.getElementById(tid);
             }
-            /* 增加error  --zhaohongwei*/
+            /* 增加error  */
             if (!tr) {
                 tid = 'e' + tid0;
                 tr = document.getElementById(tid);
@@ -248,7 +248,7 @@ a.popup_link:hover {
         s = s.replace(/>/g,'&gt;');
         return s;
     }
-    /* 增加selenium结合unittest测试的结果截图 --zhaohongwei  引用自GoverSky*/
+    /* 增加selenium结合unittest测试的结果截图 引用自GoverSky*/
     function show_img(obj) {
         var obj1 = obj.nextElementSibling
         obj1.style.display='block'
@@ -307,13 +307,13 @@ a.popup_link:hover {
     <div id="div_base">
         
     <div class='page-header'>
-        <h1>HwTestReport 测试
+        <h1>TestReport 测试
         </h1>
         <div style="float:left;width:50%;">
-            <p class='parameters'> <p class='attribute'><strong>测试人员:</strong> Johnny</p>
-<p class='attribute'><strong>开始时间:</strong> 2020-01-13 17:00:17</p>
-<p class='attribute'><strong>运行时长:</strong> 0:00:00.001000</p>
-<p class='attribute'><strong>测试结果:</strong> 共 6  通过 2 失败 2 错误 2  通过率:33.3%</p>
+            <p class='parameters'> <p class='attribute'><strong>测试人员:</strong> shark</p>
+<p class='attribute'><strong>开始时间:</strong> 2021-08-10 11:30:15</p>
+<p class='attribute'><strong>运行时长:</strong> 0:00:00.076301</p>
+<p class='attribute'><strong>测试结果:</strong> 共 5  通过 4 失败 1  通过率:80.0%</p>
 </p>
             <br>
             <br>
@@ -350,155 +350,135 @@ a.popup_link:hover {
     <td>查看</td>
 </tr>
 
-<tr class='errorClass'>
-    <td>Case_assert_1</td>
-    <td>3</td>
+<tr class='failClass'>
+    <td>interface.add_event_test.AddEventTest: 添加发布会</td>
+    <td>5</td>
+    <td>4</td>
     <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td><a href="javascript:showClassDetail('c1',3)">详情</a></td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',5)">详情</a></td>
 </tr>
 
 <tr id='pt1_1' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_ok</div></td>
-    <td colspan='5' align='center'>通过</td>
-</tr>
-
-<tr id='ft1_2' class='none'>
-    <td class='failCase'><div class='testcase'>test_faile</div></td>
+    <td class='passCase'><div class='testcase'>test_add_event_all_null: 所有参数为空</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1_2')" >
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1_1')" >
+        通过</a>
+
+    <div id='div_pt1_1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1_1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1_1: {'status': 10021, 'message': 'parameter error'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_event_eid_exist: id已经存在</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1_2')" >
+        通过</a>
+
+    <div id='div_pt1_2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1_2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1_2: {'status': 10022, 'message': 'event id already exists'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_event_name_exist: 名称已经存在</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1_3')" >
+        通过</a>
+
+    <div id='div_pt1_3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1_3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1_3: {'status': 10023, 'message': 'event name already exists'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_event_data_type_error: 日期格式错误</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1_4')" >
+        通过</a>
+
+    <div id='div_pt1_4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1_4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1_4: {'status': 10024, 'message': 'start_time format error. It must be in YYYY-MM-DD HH:MM:SS format.'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1_5' class='none'>
+    <td class='failCase'><div class='testcase'>test_add_event_success: 添加成功</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1_5')" >
         失败</a>
 
-    <div id='div_ft1_2' class="popup_window">
+    <div id='div_ft1_5' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1_2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1_5').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1_2: Traceback (most recent call last):
-  File "D:/PyProject/HwHtmlTestReport/python/test_unittest_HwTestReport.py", line 32, in test_faile
-    self.assertEqual(1,2)
-AssertionError: 1 != 2
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='et1_3' class='none'>
-    <td class='errorCase'><div class='testcase'>test_error</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et1_3')" >
-        错误</a>
-
-    <div id='div_et1_3' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_et1_3').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-et1_3: Traceback (most recent call last):
-  File "D:/PyProject/HwHtmlTestReport/python/test_unittest_HwTestReport.py", line 35, in test_error
-    raise Exception
-Exception
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr class='passClass'>
-    <td>Case_assert_2</td>
-    <td>1</td>
-    <td>1</td>
-    <td>0</td>
-    <td>0</td>
-    <td><a href="javascript:showClassDetail('c2',1)">详情</a></td>
-</tr>
-
-<tr id='pt2_1' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_ok</div></td>
-    <td colspan='5' align='center'>通过</td>
-</tr>
-
-<tr class='errorClass'>
-    <td>Case_assert_3</td>
-    <td>1</td>
-    <td>0</td>
-    <td>0</td>
-    <td>1</td>
-    <td><a href="javascript:showClassDetail('c3',1)">详情</a></td>
-</tr>
-
-<tr id='et3_1' class='none'>
-    <td class='errorCase'><div class='testcase'>test_error</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_et3_1')" >
-        错误</a>
-
-    <div id='div_et3_1' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_et3_1').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-et3_1: Traceback (most recent call last):
-  File "D:/PyProject/HwHtmlTestReport/python/test_unittest_HwTestReport.py", line 53, in test_error
-    raise Exception
-Exception
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr class='failClass'>
-    <td>Case_assert_4</td>
-    <td>1</td>
-    <td>0</td>
-    <td>1</td>
-    <td>0</td>
-    <td><a href="javascript:showClassDetail('c4',1)">详情</a></td>
-</tr>
-
-<tr id='ft4_1' class='none'>
-    <td class='failCase'><div class='testcase'>test_faile</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4_1')" >
-        失败</a>
-
-    <div id='div_ft4_1' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4_1').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft4_1: Traceback (most recent call last):
-  File "D:/PyProject/HwHtmlTestReport/python/test_unittest_HwTestReport.py", line 62, in test_faile
-    self.assertEqual(1,3)
-AssertionError: 1 != 3
+ft1_5: {'status': 200, 'message': 'add event success'}
+Traceback (most recent call last):
+  File "E:\interfaceProject\interface\add_event_test.py", line 52, in test_add_event_success
+    self.assertEqual(self.result['status'], 2001)
+AssertionError: 200 != 2001
 
 
         </pre>
@@ -510,11 +490,11 @@ AssertionError: 1 != 3
 
 <tr id='total_row'>
     <td>总计</td>
-    <td>6</td>
-    <td>2</td>
-    <td>2</td>
-    <td>2</td>
-    <td>通过率：33.3%</td>
+    <td>5</td>
+    <td>4</td>
+    <td>1</td>
+    <td>0</td>
+    <td>通过率：80.0%</td>
     
 </tr>
 </table>
@@ -523,7 +503,7 @@ AssertionError: 1 != 3
 <div id='ending'>
     <p align="center">
     Copyright &copy 2016
-    <a href="http://blog.csdn.net/z_johnny" target="_blank"> HONGWEI </a>
+    <a href="http://blog.csdn.net/z_johnny" target="_blank"> shark </a>
     Inc. All rights reserved.
     </p>
 </div>
@@ -559,9 +539,9 @@ AssertionError: 1 != 3
                         radius : '60%',
                         center: ['50%', '60%'],
                         data:[
-                            {value:2, name:'通过'},
-                            {value:2, name:'失败'},
-                            {value:2, name:'错误'}
+                            {value:4, name:'通过'},
+                            {value:1, name:'失败'},
+                            {value:0, name:'错误'}
                         ],
                         itemStyle: {
                             emphasis: {

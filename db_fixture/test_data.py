@@ -1,5 +1,3 @@
-import sys
-sys.path.append('../db_fixture')
 from mysql_db import DB
 import time
 
